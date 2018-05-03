@@ -3,7 +3,7 @@
 namespace KentBeckTdd.UnitTests
 {
     [TestClass]
-    public class MultiplicationTests
+    public class GeneralTests
     {
         [TestMethod]
         public void TestMultiplication()
