@@ -1,8 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using KentBeckTdd;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace UnitTestProject2
+namespace KentBeckTdd.UnitTests
 {
     [TestClass]
     public class MultiplicationTests
