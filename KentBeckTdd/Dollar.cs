@@ -1,4 +1,6 @@
-﻿namespace KentBeckTdd
+﻿using System;
+
+namespace KentBeckTdd
 {
     public class Dollar
     {
@@ -12,6 +14,12 @@
         public Dollar Times(int multiplier)
         {
             return new Dollar(amount * multiplier);
+        }
+
+        public Boolean Equals(object o)
+        {
+            var dollar = (Dollar) o;
+            return amount == dollar.amount;
         }
     }
 }
