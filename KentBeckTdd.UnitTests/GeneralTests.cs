@@ -8,27 +8,27 @@ namespace KentBeckTdd.UnitTests
         [TestMethod]
         public void TestMultiplication()
         {
-            var five = new Dollar(5);
-            Assert.IsTrue(new Dollar(10).Equals(five.Times(2)));
-            Assert.IsTrue(new Dollar(15).Equals(five.Times(3)));
+            var five = Money.dollar(5); 
+            Assert.IsTrue(Money.dollar(10).Equals(five.Times(2)));
+            Assert.IsTrue(Money.dollar(15).Equals(five.Times(3)));
         }
 
         [TestMethod]
         public void TestEquality()
         {
-            Assert.IsTrue(new Dollar(5).Equals(new Dollar(5)));
-            Assert.IsFalse(new Dollar(5).Equals(new Dollar(6)));
-            Assert.IsTrue(new Franc(5).Equals(new Franc(5)));
-            Assert.IsFalse(new Franc(5).Equals(new Franc(6)));
-            Assert.IsFalse(new Franc(5).Equals(new Dollar(5)));
+            Assert.IsTrue(Money.dollar(5).Equals(new Dollar(5)));
+            Assert.IsFalse(Money.dollar(5).Equals(new Dollar(6)));
+            Assert.IsTrue(Money.franc(5).Equals(Money.franc(5)));
+            Assert.IsFalse(Money.franc(5).Equals(Money.franc(6)));
+            Assert.IsFalse(Money.franc(5).Equals(new Dollar(5)));
         }
 
         [TestMethod]
         public void TestFrancMultiplication()
         {
-            var five = new Franc(5);
-            Assert.IsTrue(new Franc(10).Equals(five.Times(2)));
-            Assert.IsTrue(new Franc(15).Equals(five.Times(3)));
+            var five = Money.franc(5);
+            Assert.IsTrue(Money.franc(10).Equals(five.Times(2)));
+            Assert.IsTrue(Money.franc(15).Equals(five.Times(3)));
         }
     }
 }

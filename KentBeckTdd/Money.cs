@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KentBeckTdd
 {
-    public class Money
+    public abstract class Money
     {
         protected int amount;
 
@@ -15,5 +15,17 @@ namespace KentBeckTdd
             var money = (Money)o;
             return amount == money.amount && GetType() == money.GetType();
         }
+
+        public static Money dollar(int amount)
+        {
+            return  new Dollar(amount);
+        }
+
+        public static Money franc(int amount)
+        {
+            return new Franc(amount);
+        }
+
+        public abstract Money Times(int multiplier);
     }
 }
