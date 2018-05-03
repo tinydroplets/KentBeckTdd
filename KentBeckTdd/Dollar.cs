@@ -2,9 +2,9 @@
 
 namespace KentBeckTdd
 {
-    public class Dollar
+    public class Dollar : Money
     {
-        private int amount;
+        //private int amount;
 
         public Dollar(int amount)
         {
@@ -16,10 +16,10 @@ namespace KentBeckTdd
             return new Dollar(amount * multiplier);
         }
 
-        public Boolean Equals(object o)
-        {
-            var dollar = (Dollar) o;
-            return amount == dollar.amount;
-        }
+        //public Boolean Equals(object o)
+        //{
+        //    var money = (Money) o;
+        //    return amount == money.amount;
+        //}
     }
 }
