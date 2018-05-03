@@ -13,7 +13,7 @@ namespace KentBeckTdd
         public Boolean Equals(object o)
         {
             var money = (Money)o;
-            return amount == money.amount;
+            return amount == money.amount && GetType() == money.GetType();
         }
     }
 }
