@@ -8,14 +8,19 @@ namespace KentBeckTdd
 {
     public class Franc : Money
     {
-        public Franc(int amount)
+        //private string currency;
+        public Franc(int amount, string currency) : base(amount, currency)
         {
-            this.amount = amount;
         }
 
         public override Money Times(int multiplier)
         {
-            return new Franc(amount * multiplier);
+            return Money.franc(amount * multiplier);
         }
+
+        //public override string currency()
+        //{
+        //    return _currency;
+        //}
     }
 }

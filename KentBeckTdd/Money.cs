@@ -1,14 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KentBeckTdd
 {
     public abstract class Money
     {
         protected int amount;
+        protected string _currency;
+
+        protected Money(int amount, string currency)
+        {
+            this.amount = amount;
+            this._currency = currency;
+        }
 
         public Boolean Equals(object o)
         {
@@ -18,14 +21,19 @@ namespace KentBeckTdd
 
         public static Money dollar(int amount)
         {
-            return  new Dollar(amount);
+            return  new Dollar(amount, "USD");
         }
 
         public static Money franc(int amount)
         {
-            return new Franc(amount);
+            return new Franc(amount, "CHF");
         }
 
         public abstract Money Times(int multiplier);
+
+        public string currency()
+        {
+            return _currency;
+        }
     }
 }

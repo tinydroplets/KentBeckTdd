@@ -1,17 +1,23 @@
 ﻿using System;
+using System.Data.SqlTypes;
 
 namespace KentBeckTdd
 {
     public class Dollar : Money
     {
-        public Dollar(int amount)
+        private string currency;
+        public Dollar(int amount, string currency) : base(amount, currency)
         {
-            this.amount = amount;
         }
 
         public override Money Times(int multiplier)
         {
-            return new Dollar(amount * multiplier);
+            return Money.dollar(amount * multiplier);
         }
+
+        //public override string currency()
+        //{
+        //    return _currency;
+        //}
     }
 }
