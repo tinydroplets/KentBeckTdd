@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Runtime.InteropServices;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace KentBeckTdd.UnitTests
 {
@@ -44,6 +45,33 @@ namespace KentBeckTdd.UnitTests
             var bank = new Bank();
             var reduced = bank.Reduce(sum, "USD");
             Assert.IsTrue(Money.dollar(10).Equals(reduced));
+        }
+
+        [TestMethod]
+        public void TestPlusReturnsSum()
+        {
+            var five = Money.dollar(5);
+            var result = five.plus(five);
+            var sum = (Sum) result;
+            Assert.AreEqual(five, sum.augend);
+            Assert.AreEqual(five, sum.addend);
+        }
+
+        [TestMethod]
+        public void TestReduceSum()
+        {
+            var sum = new Sum(Money.dollar(3), Money.dollar(4));
+            var bank = new Bank();
+            var result = bank.Reduce(sum, "USD");
+            Assert.IsTrue(Money.dollar(7).Equals(result));
+        }
+
+        [TestMethod]
+        public void TestReduceMoney()
+        {
+            var bank = new Bank();
+            var result = bank.Reduce(Money.dollar(1), "USD");
+            Assert.IsTrue(Money.dollar(1).Equals(result));
         }
     }
 }

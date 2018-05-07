@@ -4,7 +4,7 @@ namespace KentBeckTdd
 {
     public class Money : Expression
     {
-        protected int amount;
+        public int amount;
         protected string _currency;
 
         public Money(int amount, string currency)
@@ -47,9 +47,14 @@ namespace KentBeckTdd
 
         public Expression plus(Money addend)
         {
-            return new Money(amount + addend.amount, _currency);
+            //return new Money(amount + addend.amount, _currency);
+            return new Sum(this, addend);
         }
 
+        public Money Reduce(string to)
+        {
+            return this;
+        }
        
     }
 }
