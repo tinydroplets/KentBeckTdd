@@ -36,10 +36,14 @@ namespace KentBeckTdd.UnitTests
             Assert.AreEqual("CHF", Money.franc(1).currency());
         }
 
-        //[TestMethod]
-        //public void TestDifferentClassEquality()
-        //{
-        //    Assert.IsTrue(new Money(10,"CHF").Equals(new Franc(10, "CHF")));
-        //}
+        [TestMethod]
+        public void TestSimpleAddition()
+        {
+            var five = Money.dollar(5);
+            var sum = five.plus(five);
+            var bank = new Bank();
+            var reduced = bank.Reduce(sum, "USD");
+            Assert.IsTrue(Money.dollar(10).Equals(reduced));
+        }
     }
 }
