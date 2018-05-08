@@ -47,13 +47,14 @@ namespace KentBeckTdd
 
         public Expression plus(Money addend)
         {
-            //return new Money(amount + addend.amount, _currency);
             return new Sum(this, addend);
         }
 
-        public Money Reduce(string to)
+        public Money Reduce(Bank bank, string to)
         {
-            return this;
+            //var rate = (_currency.Equals("CHF") & to.Equals("USD")) ? 2 : 1;
+            var rate = bank.Rate(_currency, to);
+            return new Money(amount / rate, to);
         }
        
     }

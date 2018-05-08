@@ -73,5 +73,26 @@ namespace KentBeckTdd.UnitTests
             var result = bank.Reduce(Money.dollar(1), "USD");
             Assert.IsTrue(Money.dollar(1).Equals(result));
         }
+
+        [TestMethod]
+        public void TestReduceMoneyDifferentCurrency()
+        {
+            var bank = new Bank();
+           // bank.addRate("CHF", "USD",2);
+            var result = bank.Reduce(Money.franc(2), "USD");
+            Assert.IsTrue(Money.dollar(1).Equals(result));
+        }
+
+        //[TestMethod]
+        //public void TestArrayEquals()
+        //{
+        //    Assert.AreEqual(new object[] {"abc"}, new object[] {"abc"});
+        //}
+
+        [TestMethod]
+        public void TestIdentityRate()
+        {
+            Assert.AreEqual(1, new Bank().Rate("USD", "USD"));
+        }
     }
 }

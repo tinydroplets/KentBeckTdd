@@ -17,7 +17,7 @@ namespace KentBeckTdd
             this.addend = addend;
         }
 
-        public Money Reduce(string to)
+        public Money Reduce(Bank bank, string to)
         {
             var amount = augend.amount + addend.amount;
             return  new Money(amount, to);
