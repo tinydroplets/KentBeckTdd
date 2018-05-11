@@ -8,10 +8,10 @@ namespace KentBeckTdd
 {
     public class Sum : Expression
     {
-        public Money augend;
-        public Money addend;
+        public Expression augend;
+        public Expression addend;
 
-        public Sum(Money augend, Money addend)
+        public Sum(Expression augend, Expression addend)
         {
             this.augend = augend;
             this.addend = addend;
@@ -19,8 +19,14 @@ namespace KentBeckTdd
 
         public Money Reduce(Bank bank, string to)
         {
-            var amount = augend.amount + addend.amount;
+            //var amount = augend.amount + addend.amount;
+            var amount = augend.Reduce(bank, to).amount + addend.Reduce(bank, to).amount;
             return  new Money(amount, to);
+        }
+
+        public Expression plus(Expression addend)
+        {
+            return null;
         }
     }
 }

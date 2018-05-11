@@ -9,5 +9,7 @@ namespace KentBeckTdd
     public interface Expression
     {
         Money Reduce(Bank bank, string to);
+
+        Expression plus(Expression addend);
     }
 }

@@ -30,7 +30,7 @@ namespace KentBeckTdd
             return new Money(amount, "CHF");
         }
 
-        public Money Times(int multiplier)
+        public Expression Times(int multiplier)
         {
             return new Money(amount * multiplier, _currency);
         }
@@ -45,7 +45,7 @@ namespace KentBeckTdd
             return amount + " " + _currency;
         }
 
-        public Expression plus(Money addend)
+        public Expression plus(Expression addend)
         {
             return new Sum(this, addend);
         }

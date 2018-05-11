@@ -94,5 +94,16 @@ namespace KentBeckTdd.UnitTests
         {
             Assert.AreEqual(1, new Bank().Rate("USD", "USD"));
         }
+
+        [TestMethod]
+        public void textMixedAddition()
+        {
+            Expression fiveBucks = Money.dollar(5);
+            Expression tenfrancs = Money.franc(10);
+            var bank = new Bank();
+            bank.AddRate("CHF", "USD", 2);
+            var result = bank.Reduce(fiveBucks.plus(tenfrancs), "USD");
+            Assert.IsTrue(Money.dollar(10).Equals(result));
+        }
     }
 }
